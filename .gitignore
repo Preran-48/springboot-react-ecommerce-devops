@@ -1,0 +1,14 @@
+# Backend
+Ecommerce-Backend/target/
+
+# Frontend
+Ecommerce-Frontend/node_modules/
+Ecommerce-Frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
