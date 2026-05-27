@@ -9,7 +9,7 @@ services:
       - "8081:8081"
 
   frontend:
-    image: preran1966/react-ecommerce-frontend:v3
+    image: preran1966/react-ecommerce-frontend:v4
     container_name: frontend-container
     ports:
       - "3000:80"
