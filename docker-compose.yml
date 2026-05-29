@@ -3,13 +3,13 @@ version: '3.8'
 services:
 
   backend:
-    image: preran1966/springboot-ecommerce-backend:v1
+    image: preran1966/springboot-ecommerce-backend:latest
     container_name: backend-container
     ports:
       - "8081:8081"
 
   frontend:
-    image: preran1966/react-ecommerce-frontend:v4
+    image: preran1966/react-ecommerce-frontend:latest
     container_name: frontend-container
     ports:
       - "3000:80"

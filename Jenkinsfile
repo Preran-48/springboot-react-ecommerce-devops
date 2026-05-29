@@ -83,5 +83,16 @@ pipeline {
                 bat "docker push %FRONTEND_IMAGE%:latest"
             }
         }
+
+        stage('Deploy Application') {
+           steps {
+
+               bat 'docker compose down'
+
+               bat 'docker compose pull'
+
+               bat 'docker compose up -d'
+            }
+        }
     }
 }
