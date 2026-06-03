@@ -30,7 +30,9 @@ public class Product {
     private String imageName;
     private String imageType;
     @Lob
-    private byte[] imageDate;
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] imageData;
+    
 
     public int getId() {
         return id;
@@ -112,7 +114,7 @@ public class Product {
         this.imageName = imageName;
     }
 
-    public String getImageType(String contentType) {
+    public String getImageType() {
         return imageType;
     }
 
@@ -120,11 +122,11 @@ public class Product {
         this.imageType = imageType;
     }
 
-    public byte[] getImageDate() {
-        return imageDate;
+    public byte[] getImageData() {
+        return imageData;
     }
 
-    public void setImageDate(byte[] imageDate) {
-        this.imageDate = imageDate;
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
     }
 }
