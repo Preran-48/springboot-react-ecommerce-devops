@@ -34,7 +34,7 @@ public class ProductService {
         // Image handling
         product.setImageName(imageFile.getOriginalFilename());
         product.setImageType(imageFile.getContentType());
-        product.setImageDate(imageFile.getBytes());
+        product.setImageData(imageFile.getBytes());
 
         return repo.save(product);
     }
@@ -46,7 +46,7 @@ public class ProductService {
         product.setProductAvailable(product.getStockQuantity() > 0);
 
         // Image handling
-        product.setImageDate(imageFile.getBytes());
+        product.setImageData(imageFile.getBytes());
         product.setImageName(imageFile.getOriginalFilename());
         product.setImageType(imageFile.getContentType());
 

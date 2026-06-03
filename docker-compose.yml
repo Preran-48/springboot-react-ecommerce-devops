@@ -2,16 +2,44 @@ version: '3.8'
 
 services:
 
+  mysql:
+    image: mysql:8
+    container_name: mysql-container
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: ecommerce
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+
   backend:
     image: preran1966/springboot-ecommerce-backend:latest
     container_name: backend-container
+
     ports:
       - "8081:8081"
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ecommerce
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root123
+
+    depends_on:
+      - mysql
 
   frontend:
     image: preran1966/react-ecommerce-frontend:latest
     container_name: frontend-container
+
     ports:
       - "3000:80"
+
     depends_on:
       - backend
+
+volumes:
+  mysql-data:
