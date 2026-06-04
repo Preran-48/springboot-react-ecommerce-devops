@@ -1,5 +1,6 @@
 package com.cart.ecom_proj.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +30,7 @@ public class Product {
 
     private String imageName;
     private String imageType;
+    @JsonIgnore
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] imageData;
