@@ -21,6 +21,10 @@ pipeline {
         }
 
         stage('Build Backend') {
+
+            when { 
+                changeset "Ecommerce-Backend/**" 
+            }
             steps {
                 dir('Ecommerce-Backend') {
                     bat 'mvn clean package'
@@ -29,6 +33,10 @@ pipeline {
         }
 
         stage('Build Frontend') {
+
+            when { 
+                changeset "Ecommerce-Frontend/**" 
+            }
             steps {
                 dir('Ecommerce-Frontend') {
                     bat 'npm install'
@@ -38,6 +46,10 @@ pipeline {
         }
 
         stage('Build Backend Docker Image') {
+
+            when { 
+                changeset "Ecommerce-Backend/**" 
+            }
             steps {
                 dir('Ecommerce-Backend') {
 
@@ -49,6 +61,10 @@ pipeline {
         }
 
         stage('Build Frontend Docker Image') {
+
+            when { 
+                changeset "Ecommerce-Frontend/**" 
+            }
             steps {
                 dir('Ecommerce-Frontend') {
 
@@ -67,6 +83,9 @@ pipeline {
 
 
         stage('Push Backend Docker Images') {
+            when { 
+                changeset "Ecommerce-Backend/**" 
+            }
             steps {
 
                 bat "docker push %BACKEND_IMAGE%:%IMAGE_TAG%"
@@ -76,6 +95,9 @@ pipeline {
         }
 
         stage('Push Frontend Docker Images') {
+            when { 
+                changeset "Ecommerce-Frontend/**" 
+            }
             steps {
 
                 bat "docker push %FRONTEND_IMAGE%:%IMAGE_TAG%"
