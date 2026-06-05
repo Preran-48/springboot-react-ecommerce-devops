@@ -24,3 +24,13 @@ spec:
 
         ports:
         - containerPort: 8081
+
+        env: 
+         - name: SPRING_DATASOURCE_URL 
+           value: jdbc:mysql://mysql-service:3306/ecommerce
+
+         - name: SPRING_DATASOURCE_USERNAME 
+           value: root 
+           
+         - name: SPRING_DATASOURCE_PASSWORD 
+           value: root123
