@@ -107,6 +107,14 @@ pipeline {
         }
 
         stage('Deploy Application') {
+
+           when { 
+              anyOf { 
+                changeset "Ecommerce-Backend/**" 
+                changeset "Ecommerce-Frontend/**" 
+                changeset "docker-compose.yml" 
+              } 
+           }
            steps {
 
                bat 'docker compose down'
