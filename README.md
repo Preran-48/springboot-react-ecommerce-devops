@@ -467,15 +467,17 @@ A complete Jenkins Declarative Pipeline is implemented for CI/CD automation.
 
 # ⚙️ Jenkins Pipeline Features
 
-* Clone source code from GitHub
-* Build Spring Boot backend
-* Build React frontend
-* Build Docker images
-* Push Docker images to Docker Hub
-* Docker image versioning using Jenkins build number
-* latest image maintenance
-* Automated deployment using Docker Compose
-
+- Clone source code from GitHub
+- Build Spring Boot backend
+- Build React frontend
+- Build Docker images
+- Push Docker images to Docker Hub
+- Docker image versioning using Jenkins build number
+- latest image maintenance
+- Automated deployment using Docker Compose
+- Conditional frontend/backend image builds using Jenkins changeset
+- Optimized CI/CD pipeline execution
+- Avoids unnecessary Docker image builds
 ---
 
 # 🚀 Jenkins CI/CD Flow
@@ -495,6 +497,33 @@ Docker Hub Push
 Docker Compose Deployment
 
 ---
+
+## 🚀 CI/CD Pipeline Optimization
+
+The Jenkins pipeline is optimized using Declarative Pipeline `changeset` conditions.
+
+This ensures:
+
+* Backend Docker images are rebuilt only when backend code changes
+* Frontend Docker images are rebuilt only when frontend code changes
+* Unnecessary image builds are avoided
+* Pipeline execution becomes faster and more efficient
+
+### Example
+
+| File Changed            | Pipeline Behavior          |
+| ----------------------- | -------------------------- |
+| `Ecommerce-Backend/**`  | Backend stages execute     |
+| `Ecommerce-Frontend/**` | Frontend stages execute    |
+| `README.md`             | Image build stages skipped |
+
+This optimization improves:
+
+* Build performance
+* Resource utilization
+* Docker Hub storage efficiency
+* CI/CD scalability
+
 
 # 📦 Docker Hub Repositories
 
